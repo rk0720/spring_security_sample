@@ -17,8 +17,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // 認証・認可に関する設定を追加します
     	http.authorizeRequests()
-        .antMatchers("/loginForm").permitAll() // /loginFormは、全ユーザからのアクセスを許可
-        .anyRequest().authenticated(); // 許可した項目以外は、認証を求める
+        .antMatchers("/loginForm").permitAll()
+        .antMatchers("/admin").hasAuthority("ADMIN") // 管理者のみ/adminにアクセスできる
+        .anyRequest().authenticated();
     	
     	 //ログイン処理
         http.formLogin()
