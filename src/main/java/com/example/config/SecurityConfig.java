@@ -1,6 +1,7 @@
 package com.example.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 // Spring Securityの設定を有効にします
+@Configuration
 @EnableWebSecurity
 // WebSecurityConfigurerAdapterを必ず継承
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
